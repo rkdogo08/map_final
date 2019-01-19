@@ -14,19 +14,23 @@
     <script>
 
         var sejong = new naver.maps.LatLng(37.551242, 127.073882);           //세종대
-
-        var map = new naver.maps.Map('map', {
+        
+        var mapOp={
             center: sejong,
             zoom: 12,
             mapTypeId: naver.maps.MapTypeId.HYBRID
-        });
+        }
+        
+        var map = new naver.maps.Map('map',mapOp);
 
-        var polyline = new naver.maps.Polyline({            //폴리라인
+        var polyOp={
             map: map,
             path: [],
             strokeColor: '#b73a3c',
             strokeWeight: 2
-        });
+        }
+        
+        var polyline = new naver.maps.Polyline(polyOp);
 
         var markers = [];
 
@@ -37,17 +41,8 @@
             polyline.setMap(null);
             markers = [];
 
-            map = new naver.maps.Map('map', {
-            center: sejong,
-            zoom: 12,
-            mapTypeId: naver.maps.MapTypeId.HYBRID
-        });
-            polyline = new naver.maps.Polyline({            //폴리라인
-                map: map,
-                path: [],
-                strokeColor: '#b73a3c',
-                strokeWeight: 2
-            });
+            map = new naver.maps.Map('map', mapOp);
+            polyline = new naver.maps.Polyline(polyOp);
         }
 
         var imgFile = '<button type="button"><span class="text">Delete</span></button>';
