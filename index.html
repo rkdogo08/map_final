@@ -37,8 +37,11 @@
             polyline.setMap(null);
             markers = [];
 
-            map.setCenter(sejong);
-
+            map = new naver.maps.Map('map', {
+            center: sejong,
+            zoom: 12,
+            mapTypeId: naver.maps.MapTypeId.HYBRID
+        });
             polyline = new naver.maps.Polyline({            //폴리라인
                 map: map,
                 path: [],
