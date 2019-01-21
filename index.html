@@ -23,6 +23,9 @@
         
         var map = new naver.maps.Map('map',mapOp);
 
+        
+        var markers = [];
+        
         var polyOp={
             map: map,
             path: [],
@@ -34,6 +37,9 @@
 
         function delete_all() {
 
+            for (var i = 0, ii = markers.length; i < ii; i++) {
+                markers[i].setMap(null)
+            }
             polyline.setMap(null);
             markers = [];
 
@@ -70,6 +76,7 @@
                     anchor: new naver.maps.Point(4, 4)
                 }
             });
+            //markers.push(mark);
             map.setCenter(point);
 
         });
