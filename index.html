@@ -51,13 +51,13 @@
 
         var imgFile = '<button type="button"><span class="text">Delete</span></button>';
 
-        var customControl = new naver.maps.CustomControl(imgFile, {
+        var addButton = new naver.maps.CustomControl(imgFile, {
             position: naver.maps.Position.TOP_LEFT
         });
 
-        customControl.setMap(map);
+        addButton.setMap(map);
 
-        var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function () {
+        var domEventListener = naver.maps.Event.addDOMListener(addButton.getElement(), 'click', function () {
             delete_all()
         });
 
