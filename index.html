@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>경로 </title>
+    <title>이동 경로</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=t32rkm7gch"></script>
 </head>
 <body>
@@ -24,23 +24,18 @@
     var map = new naver.maps.Map('map', mapOp);
 
 
-
-
-
-    var markers = [];
     var poly_path = [];
 
     var hash = window.location.hash.substring(1); 
     var pos = hash.split(',');
     var point_len = pos.length;  
-    
     for (var i = 0; i < (point_len/2); i++) {
-        var point =  new naver.maps.LatLng(pos[2*i], pos[2*i+1]); 
+        var lon = 37.5+parseInt(pos[2*i],16)/1e8;
+        var lat = 127.1+parseInt(pos[2*i+1],16)/1e8;
+        var point =  new naver.maps.LatLng(lon,lat); 
         
         poly_path.push(point);
-        //alert( poly_path.length);
-
-
+        //alert( lon);
     
     }
 
