@@ -25,7 +25,7 @@ for i = 1:n:end_i
 end
 gps_t = strip(gps_t,'right',',');
 
-dos("start chrome file:///C:/Users/user1129/Desktop/route_plot.html#"+gps_t);
+dos("start chrome https://rkdogo08.github.io/map_final/#"+gps_t);
 % #1A387F,2D6964,1A3753,2D6AF3
 % #0.0171,0.0298,0.0171,0.0298
 % #37.5171,127.1298,37.5171,127.1298
