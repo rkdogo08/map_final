@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>이동 경로</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=t32rkm7gch"></script>
+</head>
+<body>
+<div id="map" style="width:100%;height:800px;"></div>
+
+<script>
+
+    //var pos_init = new naver.maps.LatLng(37.551242, 127.073882);           //세종대
+    var pos_init = new naver.maps.LatLng(37.517041, 127.129609);           //올림픽
+
+    var mapOp = {
+        center: pos_init,
+        zoom: 20,
+        mapTypeId: naver.maps.MapTypeId.HYBRID
+    }
+
+    var map = new naver.maps.Map('map', mapOp);
+
+
+    var poly_path = [];
+
+    var hash = window.location.hash.substring(1); 
+    var pos = hash.split(',');
+    var point_len = pos.length;  
+    for (var i = 0; i < (point_len/2); i++) {
+        var lon = 37.5+parseInt(pos[2*i],16)/1e8;
+        var lat = 127.1+parseInt(pos[2*i+1],16)/1e8;      //올림픽
+        //var lat = 127.0+parseInt(pos[2*i+1],16)/1e8;        //세종대
+        var point =  new naver.maps.LatLng(lon,lat); 
+        
+        poly_path.push(point);
+        //alert( lon);
+    
+    }
+
+    var mark = new naver.maps.Marker({
+                position: point,
+                map: map
+        });
+
+    var polyline = new naver.maps.Polyline({            //폴리라인
+                map: map,
+                path: poly_path,
+                strokeColor: '#b73a3c',
+                strokeWeight: 3
+    });
+
+    //map.setCenter(point);
+
+    
+
+</script>
+</body>
+</html>
