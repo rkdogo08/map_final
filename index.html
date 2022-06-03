@@ -12,8 +12,8 @@
 
 <script>
 
-    var pos_init = new naver.maps.LatLng(37.551242, 127.073882);           //세종대
-    //var pos_init = new naver.maps.LatLng(37.517041, 127.129609);           //올림픽
+    //var pos_init = new naver.maps.LatLng(37.551242, 127.073882);           //세종대
+    var pos_init = new naver.maps.LatLng(37.517041, 127.129609);           //올림픽
 
     var mapOp = {
         center: pos_init,
@@ -31,8 +31,8 @@
     var point_len = pos.length;  
     for (var i = 0; i < (point_len/2); i++) {
         var lon = 37.5+parseInt(pos[2*i],16)/1e8;
-        //var lat = 127.1+parseInt(pos[2*i+1],16)/1e8;      //올림픽
-        var lat = 127.0+parseInt(pos[2*i+1],16)/1e8;        //세종대
+        var lat = 127.1+parseInt(pos[2*i+1],16)/1e8;      //올림픽
+        //var lat = 127.0+parseInt(pos[2*i+1],16)/1e8;        //세종대
         var point =  new naver.maps.LatLng(lon,lat); 
         
         poly_path.push(point);
@@ -41,21 +41,22 @@
         var circle = new naver.maps.Circle({
             map: map,
             center: point,
-            radius: 0.4,
+            radius: 0.2,
+            //radius: 0.4,
             fillColor: '#ff0000',
             strokeColor: '#ff0000'
         });
             
     } 
         
-    /*
+    
     var polyline = new naver.maps.Polyline({            //폴리라인
                 map: map,
                 path: poly_path,
                 strokeColor: '#ff0000',
-                strokeWeight: 6
+                strokeWeight: 1
     });
-    */
+    
 
     map.setCenter(point);
 
